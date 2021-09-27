@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+
+//COMPONENTS
+import { Cards } from './components/Cards'
+import { Card } from './components/Card'
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App p-5">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Cards} />
+            <Route path="/:id" component={Card} />
+          </Switch>
+        </Router>
     </div>
   );
 }
